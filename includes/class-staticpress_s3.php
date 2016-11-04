@@ -19,7 +19,7 @@ class staticpress_s3 {
 
 	public function file_put($file_dest, $url){
 		$s3_bucket = isset($this->options['bucket']) ? $this->options['bucket'] : false;
-		$s3_key    = preg_replace('#^(https?://[^/]+/|/)#i', '', urldecode($url));
+		$s3_key    = 'wp-contents/' . preg_replace('#^(https?://[^/]+/|/)#i', '', urldecode($url));
 		$result    = $this->s3_upload($file_dest, $s3_bucket, $s3_key);
 	}
 
